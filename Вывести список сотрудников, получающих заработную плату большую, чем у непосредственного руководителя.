@@ -1,0 +1,14 @@
+SELECT emp.ID, emp.NAME, emp.SALARY
+FROM dbo.EMPLOYEE emp
+JOIN dbo.EMPLOYEE chief ON emp.CHEFF_ID = chief.ID
+WHERE emp.SALARY > chief.SALARY; 
+---  логики без условия по ЗП. Сотрудник -руководитель
+SELECT 
+    emp.ID AS emp_ID,
+    emp.NAME AS emp_NAME,
+    emp.SALARY AS emp_SALARY,
+    chief.ID AS chief_ID,
+    chief.NAME AS chief_NAME,
+    chief.SALARY AS chief_SALARY
+FROM EMPLOYEE emp
+JOIN EMPLOYEE chief ON emp.CHEFF_ID = chief.ID;
