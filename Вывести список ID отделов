@@ -1,0 +1,15 @@
+Select 
+emp.ID,
+emp.NAME,
+emp.SALARY,
+emp.DEPARTMENT_ID, 
+dep.Name AS DEPARTMENT_Name
+FROM dbo.EMPLOYEE emp
+join 
+dbo.DEPARTMENT dep ON emp.DEPARTMENT_ID =dep.ID
+where emp.DEPARTMENT_ID IN(
+Select DEPARTMENT_ID
+from dbo.EMPLOYEE
+group by DEPARTMENT_ID
+HAVING COUNT(ID) <= 3
+⦁	);
